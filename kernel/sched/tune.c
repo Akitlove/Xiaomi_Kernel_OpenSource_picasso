@@ -862,8 +862,6 @@ static struct cftype files[] = {
 	{ }	/* terminate */
 };
 
-static void dsb_worker(struct work_struct *work);
-
 static void
 schedtune_boostgroup_init(struct schedtune *st, int idx)
 {
