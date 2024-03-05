@@ -321,7 +321,6 @@ int msm_bus_noc_hw_init(struct msm_bus_fabric_registration *pdata,
 	struct msm_bus_hw_algorithm *hw_algo);
 int msm_bus_bimc_hw_init(struct msm_bus_fabric_registration *pdata,
 	struct msm_bus_hw_algorithm *hw_algo);
-#if 0
 void msm_bus_dbg_client_data(struct msm_bus_scale_pdata *pdata, int index,
 	uint32_t cl);
 void msm_bus_dbg_commit_data(const char *fabname, void *cdata,
@@ -332,46 +331,6 @@ int msm_bus_dbg_rec_transaction(const struct msm_bus_client_handle *pdata,
 void msm_bus_dbg_remove_client(const struct msm_bus_client_handle *pdata);
 int msm_bus_dbg_add_bcm(struct msm_bus_node_device_type *cur_bcm);
 void msm_bus_dbg_remove_bcm(struct msm_bus_node_device_type *cur_bcm);
-
-#else
-static inline void msm_bus_dbg_client_data(struct msm_bus_scale_pdata *pdata,
-	int index, uint32_t cl)
-{
-}
-static inline void msm_bus_dbg_commit_data(const char *fabname,
-	void *cdata, int nmasters, int nslaves, int ntslaves,
-	int op)
-{
-}
-static inline void msm_bus_dbg_remove_client
-		(const struct msm_bus_client_handle *pdata)
-{
-}
-
-static inline int
-msm_bus_dbg_rec_transaction(const struct msm_bus_client_handle *pdata,
-						u64 ab, u64 ib)
-{
-	return 0;
-}
-
-static inline int
-msm_bus_dbg_add_client(const struct msm_bus_client_handle *pdata)
-{
-	return 0;
-}
-
-static inline int
-msm_bus_dbg_add_bcm(struct msm_bus_node_device_type *cur_bcm)
-{
-	return 0;
-}
-
-static inline void
-msm_bus_dbg_remove_bcm(struct msm_bus_node_device_type *cur_bcm)
-{
-}
-#endif
 
 #ifdef CONFIG_CORESIGHT
 int msmbus_coresight_init(struct platform_device *pdev);
